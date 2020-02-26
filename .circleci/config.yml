@@ -52,7 +52,7 @@ jobs:
       - save_node
       - run:
           command: |
-            yarn danger
+            yarn danger:ci
 
 workflows:
   build:
