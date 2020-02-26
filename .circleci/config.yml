@@ -27,6 +27,7 @@ commands:
           key: node-v1-{{ checksum "package.json" }}-{{ arch }}-{{ .Branch }}
           paths:
             - node_modules
+
 jobs:
   node:
     executor:
@@ -39,7 +40,24 @@ jobs:
       - save_yarn
       - save_node
 
+  danger:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - restore_yarn
+      - restore_node
+      - run: yarn
+      - save_yarn
+      - save_node
+      - run:
+          command: |
+            yarn danger
+
 workflows:
   build:
     jobs:
       - node
+      - danger:
+          requires:
+            - node
