@@ -1,3 +1,6 @@
-import { message, danger } from "danger"
+import { warn, danger } from "danger"
 
-message(danger.git.modified_files.join("- "))
+const prThreshold = 300;
+if (danger.github.pr.additions + danger.github.pr.deletions > prThreshold) {
+  warn(':exclamation: Big PR');
+}
