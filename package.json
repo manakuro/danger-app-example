@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
-    "danger": "^9.2.10"
+    "danger": "^9.2.10",
+    "danger-plugin-istanbul-coverage": "^1.6.2"
   }
 }

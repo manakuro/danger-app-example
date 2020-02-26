@@ -52,6 +52,7 @@ jobs:
       - save_node
       - run:
           command: |
+            yarn test --ci --coverage
             yarn danger:ci
 
 workflows:
