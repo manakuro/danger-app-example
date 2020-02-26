@@ -1,4 +1,5 @@
-import { warn, danger } from "danger"
+import { warn, danger, schedule } from "danger"
+import { istanbulCoverage } from 'danger-plugin-istanbul-coverage';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -45,3 +46,21 @@ if (hasAppChanges && hasUntestedFiles) {
     `\n\n${list}`
   );
 }
+
+
+schedule(
+  istanbulCoverage({
+    reportFileSet: 'createdOrModified',
+
+    coveragePath: { path: './coverage/lcov.info', type: 'lcov' },
+
+    reportMode: 'warn',
+
+    threshold: {
+      statements: 90,
+      branches: 90,
+      functions: 90,
+      lines: 90,
+    },
+  })
+);
