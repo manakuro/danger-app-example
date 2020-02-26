@@ -3,7 +3,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: circleci/node:10.0.0
+      - image: circleci/node:12
     working_directory: ~/my-app
 
 commands:
