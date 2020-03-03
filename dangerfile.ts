@@ -34,7 +34,7 @@ const untestedFiles = modifiedOrCreatedFiles
     file,
     testFile: `${path.basename(file, path.extname(file))}.test${path.extname(file)}`,
   }))
-  .filter(m => !modifiedOrCreatedFiles.includes(m.testFile));
+  .filter(m => !modifiedOrCreatedFiles.find(f => f.includes(m.testFile)));
 
 const hasAppChanges = modifiedOrCreatedFiles.length;
 const hasUntestedFiles = untestedFiles.length;
