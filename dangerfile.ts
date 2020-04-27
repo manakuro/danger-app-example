@@ -1,4 +1,4 @@
-import { warn, danger, schedule } from "danger"
+import { warn, danger, schedule, message } from "danger"
 import { istanbulCoverage } from 'danger-plugin-istanbul-coverage';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -7,6 +7,8 @@ const prThreshold = 300;
 if (danger.github.pr.additions + danger.github.pr.deletions > prThreshold) {
   warn(':exclamation: Big PR');
 }
+
+message("test!")
 
 const createLink = (href: string, text: string): string =>
   `<a href='${href}'>${text}</a>`;
