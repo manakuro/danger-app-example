@@ -12,6 +12,7 @@ message("test!")
 
 console.log('danger.git.modified_files: ', danger.git.modified_files)
 console.log('danger.git.created_files: ', danger.git.created_files)
+console.log('danger.github: ', danger.github)
 
 const createLink = (href: string, text: string): string =>
   `<a href='${href}'>${text}</a>`;
