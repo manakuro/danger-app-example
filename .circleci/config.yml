@@ -53,7 +53,7 @@ jobs:
       - run:
           command: |
             yarn test --ci --coverage --watchAll=false
-            yarn danger:ci
+#            yarn danger:ci
 
 workflows:
   build:

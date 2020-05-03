@@ -1,0 +1,20 @@
+name: CI
+on: [pull_request, push]
+
+jobs:
+  danger:
+    name: danger
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.0.0'
+      - name: yarn install
+        run: yarn
+      - name: run danger
+        run: |
+          yarn test --ci --coverage --watchAll=false
+          yarn danger:ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
