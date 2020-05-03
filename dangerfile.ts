@@ -5,7 +5,7 @@ import * as path from 'path';
 
 console.log('danger.git.modified_files: ', danger.git.modified_files)
 console.log('danger.git.created_files: ', danger.git.created_files)
-console.log('danger.github: ', danger.github)
+console.log('danger.github: ', danger.github.pr)
 
 const prThreshold = 300;
 if (danger.github.pr.additions + danger.github.pr.deletions > prThreshold) {
