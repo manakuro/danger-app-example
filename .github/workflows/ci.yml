@@ -15,7 +15,6 @@ jobs:
       - name: run danger
         run: |
           yarn test --ci --coverage --watchAll=false
-      - name: Danger
-        uses: danger/danger-js@9.1.6
+          yarn danger:ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
