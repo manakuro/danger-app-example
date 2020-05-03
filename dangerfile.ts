@@ -3,6 +3,10 @@ import { istanbulCoverage } from 'danger-plugin-istanbul-coverage';
 import * as fs from 'fs';
 import * as path from 'path';
 
+console.log('danger.git.modified_files: ', danger.git.modified_files)
+console.log('danger.git.created_files: ', danger.git.created_files)
+console.log('danger.github: ', danger.github.pr)
+
 const prThreshold = 300;
 if (danger.github.pr.additions + danger.github.pr.deletions > prThreshold) {
   warn(':exclamation: Big PR');
